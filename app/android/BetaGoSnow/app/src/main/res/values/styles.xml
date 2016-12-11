@@ -17,10 +17,11 @@
         <item name="android:buttonStyle">@style/MinButton</item>
     </style>
 
-        <style name="MinButton" parent="MinButton.Base" />
+    <style name="MinButton" parent="MinButton.Base" />
 
-    <style name="MinButton.Base">
+    <style name="MinButton.Base" parent="Widget.AppCompat.Button">
         <!--<item name="android:background">@color/colorMinButtonBackground</item>-->
+        <item name="android:textColor">@android:color/white</item>
         <item name="colorButtonNormal">@color/colorMinButtonBackground</item>
         <item name="android:gravity">center</item>
     </style>
