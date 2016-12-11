@@ -5,6 +5,8 @@ import android.text.InputType
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import com.github.salomonbrys.kotson.fromJson
 import com.google.gson.Gson
 import meta.BetaGoServerLocation
@@ -99,9 +101,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             }
 
             frameLayout {
-                textView("Server: " + BetaGoServerLocation.get()) {
-                    textColor = ContextCompat.getColor(ctx, android.R.color.white)
-                }
+                textView("Server: " + BetaGoServerLocation.get())
                         .lparams(gravity = Gravity.CENTER or Gravity.TOP)
                 val authPickerPerspective = relativeLayout {
                     linearLayout {
@@ -139,7 +139,11 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
         }.applyRecursively {
             view ->
             when (view) {
-                is Button -> {
+                is EditText -> {
+                    view.textColor = ContextCompat.getColor(ctx, android.R.color.white)
+                }
+                is TextView -> {
+                    view.textColor = ContextCompat.getColor(ctx, android.R.color.white)
                 }
             }
         }
