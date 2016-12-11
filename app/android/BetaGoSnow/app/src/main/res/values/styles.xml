@@ -17,6 +17,7 @@
 
     <style name="AppTheme.Minimal" parent="AppTheme">
         <item name="android:buttonStyle">@style/MinButton</item>
+        <!--<item name="android:textColor">@android:color/white</item>-->
     </style>
 
     <style name="AllMinButtons" parent="AppTheme">
