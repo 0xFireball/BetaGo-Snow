@@ -1,7 +1,6 @@
 package xyz.iridiumion.betagosnow.ui
 
 import android.view.View
-import android.view.View.GONE
 import org.jetbrains.anko.*
 import xyz.iridiumion.betagosnow.MainActivity
 
@@ -9,7 +8,7 @@ import xyz.iridiumion.betagosnow.MainActivity
  * Author: 0xFireball, IridiumIon Software
  */
 
-class MainActivityUI : AnkoComponent<MainActivity> {
+class AuthenticateActivityUI : AnkoComponent<MainActivity> {
     companion object {
         val LAYOUT_ID = View.generateViewId()
         val LOGIN_PERSPECTIVE_ID = View.generateViewId()
@@ -20,6 +19,9 @@ class MainActivityUI : AnkoComponent<MainActivity> {
         verticalLayout {
             id = LAYOUT_ID
             padding = dip(30)
+            val authPickerPerspective = linearLayout {
+
+            }
             val loginPerspective = linearLayout {
                 id = LOGIN_PERSPECTIVE_ID
                 editText {
@@ -34,6 +36,7 @@ class MainActivityUI : AnkoComponent<MainActivity> {
                     textSize = 26f
                 }
             }
+            loginPerspective.visibility = View.GONE
             val signupPerspective = linearLayout {
                 id = SIGNUP_PERSPECTIVE_ID
                 editText {
@@ -47,6 +50,12 @@ class MainActivityUI : AnkoComponent<MainActivity> {
                 button("Register") {
                     textSize = 26f
                 }
+            }
+            signupPerspective.visibility = View.GONE
+            fun runMainApp() {
+                //TODO: Launch main app
+                // complete this activity
+                ui.owner.finish()
             }
         }
     }
