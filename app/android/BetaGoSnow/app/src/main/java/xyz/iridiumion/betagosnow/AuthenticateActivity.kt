@@ -6,7 +6,7 @@ import android.view.View
 import org.jetbrains.anko.setContentView
 import xyz.iridiumion.betagosnow.ui.AuthenticateActivityUI
 
-class MainActivity : AppCompatActivity() {
+class AuthenticateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

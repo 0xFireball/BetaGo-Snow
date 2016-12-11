@@ -2,20 +2,20 @@ package xyz.iridiumion.betagosnow.ui
 
 import android.view.View
 import org.jetbrains.anko.*
-import xyz.iridiumion.betagosnow.MainActivity
+import xyz.iridiumion.betagosnow.AuthenticateActivity
 
 /**
  * Author: 0xFireball, IridiumIon Software
  */
 
-class AuthenticateActivityUI : AnkoComponent<MainActivity> {
+class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
     companion object {
         val LAYOUT_ID = View.generateViewId()
         val LOGIN_PERSPECTIVE_ID = View.generateViewId()
         val SIGNUP_PERSPECTIVE_ID = View.generateViewId()
     }
 
-    override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
+    override fun createView(ui: AnkoContext<AuthenticateActivity>) = with(ui) {
         verticalLayout {
             id = LAYOUT_ID
             padding = dip(30)
