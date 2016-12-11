@@ -6,6 +6,4 @@ import com.google.gson.JsonObject
 /**
  * Created by nihal on 12/11/16.
  */
-class LoginResponse(public val obj: JsonObject) {
-    val apikey: String by obj.byString
-}
+data class LoginResponse(val apikey: String)

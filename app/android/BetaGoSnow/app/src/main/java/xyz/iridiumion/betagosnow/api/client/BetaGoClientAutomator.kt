@@ -22,7 +22,7 @@ class BetaGoClientAutomator constructor(val serverAddress: String) {
                 return Pair(false, response.httpResponseMessage)
             }
             is Result.Success -> {
-                return Pair(false, result.get())
+                return Pair(true, result.get())
             }
         }
     }

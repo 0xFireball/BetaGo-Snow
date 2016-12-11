@@ -63,11 +63,15 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                                 // parse returned data
                                 val gson = Gson()
                                 val loginResp = gson.fromJson<LoginResponse>(response)
-                                alert("Login success", "This app isn't finished.")
-                                {
-                                    positiveButton("Dismiss") {}
+                                uiThread {
+                                    loginProgress.hide()
+                                    alert("This app isn't finished.", "Login success")
+                                    {
+                                        positiveButton("Dismiss") {}
+                                    }
+                                            .show()
                                 }
-                                        .show()
+                                val userApiKey = loginResp.apikey
                             }
                         }
                     }
