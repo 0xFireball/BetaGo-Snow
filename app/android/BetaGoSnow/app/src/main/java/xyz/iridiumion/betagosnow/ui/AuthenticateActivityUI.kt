@@ -38,6 +38,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                 }
                 editText {
                     hint = "Password"
+                    inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
                 button("Connect") {
                 }
