@@ -7,6 +7,7 @@ import android.widget.Button
 import org.jetbrains.anko.*
 import xyz.iridiumion.betagosnow.AuthenticateActivity
 import xyz.iridiumion.betagosnow.R
+import xyz.iridiumion.betagosnow.api.client.BetaGoClientAutomator
 
 /**
  * Author: 0xFireball, IridiumIon Software
@@ -34,7 +35,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                     hint = "Password"
                     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
-                button("Connect") {
+                val connectButton = button("Connect") {
                 }
             }
             loginPerspective.visibility = View.GONE
@@ -47,7 +48,8 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                     hint = "Password"
                     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
-                button("Register") {
+                val registerButton = button("Register") {
+                    BetaGoClientAutomator.getClient()
                 }
             }
             signupPerspective.visibility = View.GONE
