@@ -11,7 +11,6 @@ class AuthenticateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         AuthenticateActivityUI().setContentView(this)
-
     }
 }
 
