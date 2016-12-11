@@ -9,6 +9,7 @@ import com.github.salomonbrys.kotson.fromJson
 import com.google.gson.Gson
 import meta.BetaGoServerLocation
 import org.jetbrains.anko.*
+import org.jetbrains.anko.custom.async
 import xyz.iridiumion.betagosnow.AuthenticateActivity
 import xyz.iridiumion.betagosnow.R
 import xyz.iridiumion.betagosnow.api.LoginResponse
@@ -43,15 +44,31 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                 val connectButton = button("Connect") {
                     onClick {
                         val client = BetaGoClientAutomator.getClient()
-                        val (status, response) = client.attemptLogin(usernameBox.text.toString(), passwordBox.text.toString())
-                        if (!status) {
-                            alert("Login failure", "Login failed. Please check your username and password.")
-                            return@onClick
-                        } else {
-                            // parse returned data
-                            val gson = Gson()
-                            val loginResp = gson.fromJson<LoginResponse>(response)
+                        val loginProgress = indeterminateProgressDialog("Logging in...", "Just a moment") {
+                            setCancelable(false)
+                        }
+                        doAsync {
+                            val (status, response) = client.attemptLogin(usernameBox.text.toString(), passwordBox.text.toString())
 
+                            if (!status) {
+                                uiThread {
+                                    loginProgress.hide()
+                                    alert("Login failed. Please check your username and password.", "Login failure")
+                                    {
+                                        positiveButton("Dismiss") {}
+                                    }
+                                            .show()
+                                }
+                            } else {
+                                // parse returned data
+                                val gson = Gson()
+                                val loginResp = gson.fromJson<LoginResponse>(response)
+                                alert("Login success", "This app isn't finished.")
+                                {
+                                    positiveButton("Dismiss") {}
+                                }
+                                        .show()
+                            }
                         }
                     }
                 }

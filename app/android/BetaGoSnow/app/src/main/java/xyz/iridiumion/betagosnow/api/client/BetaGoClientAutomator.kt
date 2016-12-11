@@ -15,20 +15,16 @@ class BetaGoClientAutomator constructor(val serverAddress: String) {
     }
 
     fun attemptLogin(username: String, password: String): Pair<Boolean, String> {
-        var error: String = ""
-        var data: String? = null
-        serverAddress + "/login".httpPost(listOf(Pair("username", username), Pair("password", password))).responseString { request, response, result ->
-            // process response
-            when (result) {
-                is Result.Failure -> {
-                    error = result.get()
-                }
-                is Result.Success -> {
-                    data = result.get()
-                }
+        val (request, response, result) = (serverAddress + "/login").httpPost(listOf(Pair("username", username), Pair("password", password))).responseString()
+        // process response
+        when (result) {
+            is Result.Failure -> {
+                return Pair(false, response.httpResponseMessage)
+            }
+            is Result.Success -> {
+                return Pair(false, result.get())
             }
         }
-        return Pair(data != null, data ?: error)
     }
 
     companion object {
