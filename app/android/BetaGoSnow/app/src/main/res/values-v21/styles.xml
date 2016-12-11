@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MinButton" parent="MinButton.Base">
+        <item name="android:colorButtonNormal">@color/colorMinButtonBackground</item>
+    </style>
+</resources>
