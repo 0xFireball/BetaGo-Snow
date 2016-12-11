@@ -57,29 +57,36 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             }
 
             frameLayout {
-                val authPickerPerspective = linearLayout {
-                    val btnRegister = button("Register")
-                    {
-                    }.lparams(weight = 1f) {
-                    }
-                    val btnLogin = button("Log In") {
-                    }.lparams(weight = 1f) {
-                    }
-                    btnLogin.onClick {
-                        loginPerspective.visibility = View.VISIBLE
-                        signupPerspective.visibility = View.GONE
-                        btnRegister.visibility = View.VISIBLE
-                        btnLogin.visibility = View.GONE
-                        btnRegister.text = "Register Instead"
-                        btnRegister.lparams(width = matchParent)
-                    }
-                    btnRegister.onClick {
-                        loginPerspective.visibility = View.GONE
-                        signupPerspective.visibility = View.VISIBLE
-                        btnRegister.visibility = View.GONE
-                        btnLogin.visibility = View.VISIBLE
-                        btnLogin.text = "Log In Instead"
-                        btnLogin.lparams(width = matchParent)
+                val authPickerPerspective = relativeLayout {
+                    linearLayout {
+                        val btnRegister = button("Register")
+                        {
+                        }.lparams {
+                            weight = 1f
+                        }
+                        val btnLogin = button("Log In") {
+                        }.lparams {
+                            weight = 1f
+                        }
+                        btnLogin.onClick {
+                            loginPerspective.visibility = View.VISIBLE
+                            signupPerspective.visibility = View.GONE
+                            btnRegister.visibility = View.VISIBLE
+                            btnLogin.visibility = View.GONE
+                            btnRegister.text = "Register Instead"
+                            btnRegister.lparams(width = matchParent)
+                        }
+                        btnRegister.onClick {
+                            loginPerspective.visibility = View.GONE
+                            signupPerspective.visibility = View.VISIBLE
+                            btnRegister.visibility = View.GONE
+                            btnLogin.visibility = View.VISIBLE
+                            btnLogin.text = "Log In Instead"
+                            btnLogin.lparams(width = matchParent)
+                        }
+                    }.lparams {
+                        width = matchParent
+                        alignParentBottom()
                     }
                 }
             }
