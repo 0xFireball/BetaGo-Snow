@@ -21,7 +21,19 @@ APIs utilized
 
 ### Part 1: The App
 
-App implementations are in `app/`
+App implementations are in `app/`.
+
+**BetaGo** client (Android, Java) - written by `xeliot` - 
+This client is the main mobile app for BetaGo. It does
+not yet support the new `BetaGo.Server` API; it currently only
+works with the Flask server.
+
+**BetaGoSnow** client (Android, Kotlin) - written by `0xFireball` -
+This is a secondary client for BetaGo. It is developed to test
+the very latest unstable changes and features in `BetaGo.Server`.
+This client only supports the new API. This client does not yet
+support all the BetaGo features that the **BetaGo** app supports.
+Until this support is finished, this app can be found **[here](https://github.com/0xFireball/BetaGo-Snow/tree/master/app/android/BetaGoSnow)**.
 
 #### Current Features
 
@@ -39,13 +51,15 @@ Servers are located in `server/` in the repository.
 
 Right now, there are 3 server implementations in place.
 
-- A prototype Python base http server, using flat file storage (logic completed) inefficient
-- A Python server built with Flask, using SQLite as a backend
-- An ASP.NET Core server that uses LiteDB (MongoDB-like database) as a backend
+- A prototype Python base http server, using flat file storage (logic completed) inefficient - written by `xeliot`
+- A Python server built with Flask, using SQLite as a backend - written by `xeliot`
+- An ASP.NET Core server that uses LiteDB (MongoDB-like database) as a backend - written by `0xFireball`
 
 For now, we're still using the Python server, but plan to eventually
 replace it with flask server and sqlite for convenience and simplicity
 or use ASP.NET Core server for scalability and performance.
+
+The server API documentation is in `/docs/devnotes/dotnet-server-api.md`
 
 ## Quick Start For Developers
 
@@ -66,6 +80,6 @@ Check out my blog for some tutorials on Google Maps V2 Android
 ## License and Copyrights
 
 &copy; 2016 Xeliot. All Rights Reserved. - (Creator of Project)  
-&copy; 2016 0xFireball. All Rights Reserved. - (Collaborator from IridiumIon Software)
+&copy; 2016 0xFireball. All Rights Reserved. - (Collaborator from IridiumIon Software)  
 
 Licensed under the AGPLv3.
