@@ -2,8 +2,10 @@ package xyz.iridiumion.betagosnow.ui
 
 import android.support.v4.content.ContextCompat
 import android.text.InputType
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import meta.BetaGoServerLocation
 import org.jetbrains.anko.*
 import xyz.iridiumion.betagosnow.AuthenticateActivity
 import xyz.iridiumion.betagosnow.R
@@ -60,6 +62,10 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             }
 
             frameLayout {
+                textView("Server: " + BetaGoServerLocation.get()) {
+                    textColor = ContextCompat.getColor(ctx, android.R.color.white)
+                }
+                        .lparams(gravity = Gravity.CENTER or Gravity.TOP)
                 val authPickerPerspective = relativeLayout {
                     linearLayout {
                         val btnRegister = button("Register")
