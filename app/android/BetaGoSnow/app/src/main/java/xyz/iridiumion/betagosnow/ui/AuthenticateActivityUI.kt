@@ -5,10 +5,13 @@ import android.text.InputType
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import com.github.salomonbrys.kotson.fromJson
+import com.google.gson.Gson
 import meta.BetaGoServerLocation
 import org.jetbrains.anko.*
 import xyz.iridiumion.betagosnow.AuthenticateActivity
 import xyz.iridiumion.betagosnow.R
+import xyz.iridiumion.betagosnow.api.LoginResponse
 import xyz.iridiumion.betagosnow.api.client.BetaGoClientAutomator
 
 /**
@@ -30,14 +33,27 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             backgroundColor = ContextCompat.getColor(ctx, R.color.colorSnow)
             val loginPerspective = verticalLayout {
                 id = LOGIN_PERSPECTIVE_ID
-                editText {
+                val usernameBox = editText {
                     hint = "Username"
                 }
-                editText {
+                val passwordBox = editText {
                     hint = "Password"
                     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
                 val connectButton = button("Connect") {
+                    onClick {
+                        val client = BetaGoClientAutomator.getClient()
+                        val (status, response) = client.attemptLogin(usernameBox.text.toString(), passwordBox.text.toString())
+                        if (!status) {
+                            alert("Login failure", "Login failed. Please check your username and password.")
+                            return@onClick
+                        } else {
+                            // parse returned data
+                            val gson = Gson()
+                            val loginResp = gson.fromJson<LoginResponse>(response)
+
+                        }
+                    }
                 }
             }
             loginPerspective.visibility = View.GONE
@@ -51,7 +67,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
                 val registerButton = button("Register") {
-                    BetaGoClientAutomator.getClient()
+
                 }
             }
             signupPerspective.visibility = View.GONE
