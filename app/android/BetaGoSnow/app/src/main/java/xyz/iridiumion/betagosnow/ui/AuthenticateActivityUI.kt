@@ -21,7 +21,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
 
     override fun createView(ui: AnkoContext<AuthenticateActivity>) = with(ui) {
         ui.owner.supportActionBar?.hide()
-        verticalLayout(theme = R.style.AppTheme_NoActionBar) {
+        verticalLayout(theme = R.style.AppTheme_Minimal) {
             id = LAYOUT_ID
             padding = dip(32)
             backgroundColor = ContextCompat.getColor(ctx, R.color.colorSnow)
@@ -58,7 +58,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             }
 
             frameLayout {
-                val authPickerPerspective = relativeLayout(theme = R.style.AllMinButtons) {
+                val authPickerPerspective = relativeLayout {
                     linearLayout {
                         val btnRegister = button("Register")
                         {
