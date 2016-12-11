@@ -19,9 +19,6 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
         verticalLayout {
             id = LAYOUT_ID
             padding = dip(30)
-            val authPickerPerspective = linearLayout {
-
-            }
             val loginPerspective = linearLayout {
                 id = LOGIN_PERSPECTIVE_ID
                 editText {
@@ -56,6 +53,25 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
                 //TODO: Launch main app
                 // complete this activity
                 ui.owner.finish()
+            }
+
+            val authPickerPerspective = linearLayout {
+                val btnRegister = button("Register")
+                val btnLogin = button("Log In")
+                btnLogin.onClick {
+                    loginPerspective.visibility = View.VISIBLE
+                    signupPerspective.visibility = View.GONE
+                    btnRegister.visibility = View.VISIBLE
+                    btnLogin.visibility = View.GONE
+                    btnRegister.text = "Register Instead"
+                }
+                btnRegister.onClick {
+                    loginPerspective.visibility = View.GONE
+                    signupPerspective.visibility = View.VISIBLE
+                    btnRegister.visibility = View.GONE
+                    btnLogin.visibility = View.VISIBLE
+                    btnLogin.text = "Log In Instead"
+                }
             }
         }
     }
