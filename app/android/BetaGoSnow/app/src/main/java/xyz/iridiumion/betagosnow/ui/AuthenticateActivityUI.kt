@@ -1,12 +1,12 @@
 package xyz.iridiumion.betagosnow.ui
 
+import android.support.v4.content.ContextCompat
 import android.text.InputType
-import android.view.Gravity
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
 import org.jetbrains.anko.*
 import xyz.iridiumion.betagosnow.AuthenticateActivity
+import xyz.iridiumion.betagosnow.R
 
 /**
  * Author: 0xFireball, IridiumIon Software
@@ -20,10 +20,11 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
     }
 
     override fun createView(ui: AnkoContext<AuthenticateActivity>) = with(ui) {
-
-        verticalLayout {
+        ui.owner.supportActionBar?.hide()
+        verticalLayout(theme = R.style.AppTheme_NoActionBar) {
             id = LAYOUT_ID
-            padding = dip(30)
+            padding = dip(32)
+            backgroundColor = ContextCompat.getColor(ctx, R.color.colorSnow)
             val loginPerspective = verticalLayout {
                 id = LOGIN_PERSPECTIVE_ID
                 editText {
@@ -57,7 +58,7 @@ class AuthenticateActivityUI : AnkoComponent<AuthenticateActivity> {
             }
 
             frameLayout {
-                val authPickerPerspective = relativeLayout {
+                val authPickerPerspective = relativeLayout(theme = R.style.AllMinButtons) {
                     linearLayout {
                         val btnRegister = button("Register")
                         {

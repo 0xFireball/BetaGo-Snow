@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AllMinButtons" parent="android:Theme">
+        <item name="android:buttonStyle">@style/MinButton</item>
+    </style>
+
+    <style name="MinButton">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
