@@ -17,7 +17,11 @@ Servers are located in `server/` in the repository.
 
 - An ASP.NET Core server that uses LiteDB (MongoDB-like database) as a backend - written by `0xFireball`
 
-The server API documentation is in `/docs/devnotes/dotnet-server-api.md`
+The server API documentation is in `docs/devnotes/dotnet-server-api.md`
+
+## Hacking
+
+Follow the instructions in `docs/devnotes/running-snow.md`
 
 ## License and Copyrights
 
