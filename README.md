@@ -32,6 +32,6 @@ All of the modified and added BetaGoSnow sources are from-scratch implementation
 
 BetaGo Snow copyright:
 
-&copy; 2016 0xFireball. All Rights Reserved. - (Collaborator from IridiumIon Software)
+&copy; 2016 0xFireball. All Rights Reserved.  
 
 Licensed under the AGPLv3.
