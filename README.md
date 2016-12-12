@@ -23,6 +23,10 @@ The server API documentation is in `docs/devnotes/dotnet-server-api.md`
 
 Follow the instructions in `docs/devnotes/running-snow.md`
 
+## Read more
+
+Check out my blog! <https://blog.iridiumion.xyz/>
+
 ## License and Copyrights
 
 BetaGoSnow contains a fork of the BetaGo sources.
