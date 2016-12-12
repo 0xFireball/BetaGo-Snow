@@ -1,5 +1,5 @@
 
-# BetaGo
+# BetaGo Snow
 
 An open source virtual tourism app using augmented reality (currently Android only!)
 
